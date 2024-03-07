@@ -5,9 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="script/animation.js"></script>
-    <script src="script/game.js"></script>
+    <script src="scridpt/animation.js"></script>
     <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="/css/gridanimation.css" />
   </head>
-  <body></body>
+
+  <body>
+    <div class="screen">
+      .screen
+      <div class="header">
+        .header
+        <h2>Header</h2>
+      </div>
+      <div class="game-screen">
+        .game-screen
+        <div class="game-container">
+          .game-container
+          <div class="tictactoe-board">
+            <div class="line horizontal"></div>
+            <div class="line horizontal bottom"></div>
+            <div class="line vertical"></div>
+            <div class="line vertical right"></div>
+            <!-- new code -->
+            <div class="grid-container">
+              <div class="grid-item">1</div>
+              <div class="grid-item">2</div>
+              <div class="grid-item">3</div>
+              <div class="grid-item">4</div>
+              <div class="grid-item">5</div>
+              <div class="grid-item">6</div>
+              <div class="grid-item">7</div>
+              <div class="grid-item">8</div>
+              <div class="grid-item">9</div>
+            </div>
+            <!-- new code -->
+          </div>
+          <div class="player-container">
+            .player-container
+            <div class="player1">Player 1</div>
+            <div class="player2">Player 2</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        .footer
+        <h4>Footer</h4>
+      </div>
+    </div>
+  </body>
 </html>

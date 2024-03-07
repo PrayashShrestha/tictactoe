@@ -1,0 +1,36 @@
+.line {
+background-color: #0BA192;
+position: absolute;
+}
+
+.horizontal {
+width: 0;
+height: 10px;
+top: 31%;
+animation: drawLineHorizontal 5s forwards;
+}
+
+.horizontal.bottom {
+top: 65.5%;
+}
+
+.vertical {
+width: 10px;
+height: 0;
+left: 31%;
+animation: drawLineVertical 5s forwards;
+}
+
+.vertical.right {
+left: 65.5%;
+}
+
+@keyframes drawLineHorizontal {
+from {width: 0;}
+to {width: 100%;}
+}
+
+@keyframes drawLineVertical {
+from {height: 0;}
+to {height: 100%;}
+}
