@@ -2,7 +2,10 @@
 $(document).ready(function () {
     // Initialize the game
     initializeGame();
-
+    setTimeout(() => {
+        $('.screen').css('display', 'flex');
+        $('.loading').css('display', 'none');
+    }, 2000);
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             $('.grid-container').append(`<div class="grid-item" onclick="setOnClickAttr(this)" data-row="${i}" data-col="${j}"></div>`);
@@ -25,6 +28,10 @@ let board = [
 
 let player1 = 'player1';
 let player2 = 'player2';
+let finishStatus = false;
+
+const player1_anim = '<div class="cross-container"><div class="cross-line cross-line1"></div><div class="cross-line cross-line2"></div></div>';
+const player2_anim = '<div class="circle"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" /></svg></div>';
 
 let player = player1;
 
@@ -32,11 +39,14 @@ let moves = { player1: "O", player2: "X" };
 
 // Function to initialize the game
 function initializeGame() {
-    console.log("initialized");
     // Clear the board
     clearBoard();
     // Display current player
     displayCurrentPlayer();
+    player1 = 'player1';
+    player2 = 'player2';
+    finishStatus = false;
+    player = player1;
 }
 
 // Function to clear the board
@@ -51,21 +61,20 @@ function clearBoard() {
 
 // Function to display current player
 function displayCurrentPlayer() {
-    $('.player1').text(player === player1 ? 'Current Player: ' + player1 : '');
-    $('.player2').text(player === player2 ? 'Current Player: ' + player2 : '');
+    $('.currentPlayer').text(player == player1 ? player1 : player2);
 }
 
 function switchPlayer() {
     player = (player === player1) ? player2 : player1;
+    displayCurrentPlayer();
+
 }
 
 
 function makeMove(self, posX, posY) {
-
-
+    if (finishStatus) return;
     // check if the position is empty or not
     if (board[posX][posY] != '') return;
-    console.log("start");
     board[posX][posY] = moves[player];
 
     addMove(self);
@@ -83,8 +92,8 @@ function makeMove(self, posX, posY) {
 }
 
 function addMove(self) {
-    console.log(player);
-    $(self).text(moves[player]);
+    anime = player == player1 ? player1_anim : player2_anim;
+    $(self).append(anime);
 }
 
 function checkWinner() {
@@ -124,9 +133,25 @@ function checkFilled() {
 }
 
 function showWinnerMessage() {
-    alert("Player " + player + " wins!");
+    finishStatus = true;
+    setTimeout(() => {
+        alert("Player " + player + " wins!");
+    }, 2000);
 }
 
 function showDrawMessage() {
-    alert("It's a draw!");
+    finishStatus = true;
+    setTimeout(() => {
+        alert("It's a draw!");
+    }, 2000);
+
 }
+
+/* function handleNameChange(self) {
+    if ($(self).attr('id') == player1) {
+        player1 = $(self).val();
+    } else {
+        player2 = $(self).val();
+    }
+    displayCurrentPlayer();
+} */
