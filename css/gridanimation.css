@@ -1,36 +1,89 @@
 .line {
-background-color: #0BA192;
-position: absolute;
+  background-color: #0ba192;
+  position: absolute;
 }
 
 .horizontal {
-width: 0;
-height: 10px;
-top: 31%;
-animation: drawLineHorizontal 5s forwards;
+  width: 0;
+  height: 10px;
+  top: 31%;
+  animation: drawLineHorizontal 5s forwards;
 }
 
 .horizontal.bottom {
-top: 65.5%;
+  top: 65.5%;
 }
 
 .vertical {
-width: 10px;
-height: 0;
-left: 31%;
-animation: drawLineVertical 5s forwards;
+  width: 10px;
+  height: 0;
+  left: 31%;
+  animation: drawLineVertical 5s forwards;
 }
 
 .vertical.right {
-left: 65.5%;
+  left: 65.5%;
 }
 
 @keyframes drawLineHorizontal {
-from {width: 0;}
-to {width: 100%;}
+  from {width: 0;}
+  to {width: 100%;}
 }
 
 @keyframes drawLineVertical {
-from {height: 0;}
-to {height: 100%;}
+  from {height: 0;}
+  to {height: 100%;}
+}
+
+
+.cross-container {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.cross-line {
+    position: absolute;
+    width: 0;
+    height: 8px;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    animation: drawLineCross 2s forwards;
+}
+
+  .cross-line1 {
+    transform: translateX(-50%) rotate(45deg);
+  }
+  .cross-line2 {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+
+  @keyframes drawLineCross {
+    from { width: 0; }
+    to { width: 100px; }
+  }
+
+.circle {
+    width: 80px;
+    height: 80px;
+}
+
+.circle svg {
+    width: 100%;
+    height: 100%;
+}
+
+.circle svg circle {
+    fill: none;
+    stroke: black;
+    stroke-width: 10;
+    stroke-dasharray: 314px;
+    animation: drawCircle 2s forwards;
+}
+
+@keyframes drawCircle {
+    from {stroke-dashoffset: 314px;}
+    to {stroke-dashoffset: 0;}
 }
