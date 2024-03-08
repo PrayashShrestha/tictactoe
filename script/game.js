@@ -11,7 +11,12 @@ $(document).ready(function () {
             $('.grid-container').append(`<div class="grid-item" onclick="setOnClickAttr(this)" data-row="${i}" data-col="${j}"></div>`);
         }
     }
-
+    const symbols = ['TIC', 'TAC', 'TOE'];
+    count = 0;
+    let inthandle = setInterval(() => {
+        document.getElementById("change").innerHTML = symbols[count];
+        count = (count + 1) % symbols.length;
+    }, 2000);
 });
 
 function setOnClickAttr(self) {
@@ -134,24 +139,27 @@ function checkFilled() {
 
 function showWinnerMessage() {
     finishStatus = true;
+    $(".result-text").text(`${player} wins`);
+
     setTimeout(() => {
-        alert("Player " + player + " wins!");
-    }, 2000);
+        overlayOn();
+    }, 1000);
 }
 
 function showDrawMessage() {
     finishStatus = true;
+    $(".result-text").text(`It's a draw`);
     setTimeout(() => {
-        alert("It's a draw!");
-    }, 2000);
+        overlayOn();
+    }, 1000);
 
 }
 
-/* function handleNameChange(self) {
-    if ($(self).attr('id') == player1) {
-        player1 = $(self).val();
-    } else {
-        player2 = $(self).val();
-    }
-    displayCurrentPlayer();
-} */
+function overlayOn() {
+    $("#overlay").css('display', "block");
+}
+
+function overlayOff() {
+    $("#overlay").css('display', "none");
+    initializeGame();
+}
