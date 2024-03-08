@@ -1,27 +1,20 @@
+
 $(document).ready(function () {
     // Initialize the game
     initializeGame();
 
-    // Event listenesr for clicking on grid items
-    // $('.grid-item').each((idx, element) => {
-    //     $(element).attr('onclick', 'setOnClickAttr(this)');
-    //     console.log(element);
-    //     // $(element).attr('onclick', 'setOnClickAttr(this)');
-    // });
-
-
-    for (let i = 0; i < 9; i++) {
-        $('.grid-container').append(`<div class="grid-item" onclick="setOnClickAttr(this)"></div>`);
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            $('.grid-container').append(`<div class="grid-item" onclick="setOnClickAttr(this)" data-row="${i}" data-col="${j}"></div>`);
+        }
     }
 
 });
 
 function setOnClickAttr(self) {
-    console.log("I've been clicked");
-    console.log(self);
-    let posX = $(self).data('posX');
-    let posY = $(self).data('posY');
-    makeMove(self, posX, posY);
+    let row = $(self).data('row');
+    let col = $(self).data('col');
+    makeMove(self, row, col);
 }
 
 let board = [
@@ -68,9 +61,11 @@ function switchPlayer() {
 
 
 function makeMove(self, posX, posY) {
+
+
     // check if the position is empty or not
     if (board[posX][posY] != '') return;
-
+    console.log("start");
     board[posX][posY] = moves[player];
 
     addMove(self);
@@ -88,8 +83,8 @@ function makeMove(self, posX, posY) {
 }
 
 function addMove(self) {
-    console.log(self);
-    $(self).text(moves[parent]);
+    console.log(player);
+    $(self).text(moves[player]);
 }
 
 function checkWinner() {
