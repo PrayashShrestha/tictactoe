@@ -1,3 +1,23 @@
+$(document).ready(function () {
+    // Initialize the game
+    initializeGame();
+
+    // Event listener for clicking on grid items
+    $('.grid-item').each(function () {
+        let posX = $(this).data('posX');
+        let posY = $(this).data('posY');
+        $(this).click(function () {
+            makeMove(posX, posY);
+        });
+    });
+});
+
+function setOnClickAttr(self) {
+    let posX = $(self).data('posX');
+    let posY = $(self).data('posY');
+    makeMove(self, posX, posY);
+}
+
 let board = [
     ['', '', ''],
     ['', '', ''],
@@ -11,17 +31,42 @@ let player = player1;
 
 let moves = { player1: "O", player2: "X" };
 
+// Function to initialize the game
+function initializeGame() {
+    // Clear the board
+    clearBoard();
+    // Display current player
+    displayCurrentPlayer();
+}
+
+// Function to clear the board
+function clearBoard() {
+    board = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+    ];
+    $('.grid-item').text('');
+}
+
+// Function to display current player
+function displayCurrentPlayer() {
+    $('.player1').text(player === player1 ? 'Current Player: ' + player1 : '');
+    $('.player2').text(player === player2 ? 'Current Player: ' + player2 : '');
+}
+
 function switchPlayer() {
     player = (player === player1) ? player2 : player1;
 }
 
 
-function makeMove(posX, posY) {
+function makeMove(self, posX, posY) {
     // check if the position is empty or not
     if (board[posX][posY] != '') return;
 
     board[posX][posY] = moves[player];
 
+    addMove(self);
     if (checkWinner(player)) {
         // give a winner message
         showWinnerMessage(player);
@@ -33,6 +78,11 @@ function makeMove(posX, posY) {
     }
 
     switchPlayer();
+}
+
+function addMove(self) {
+    console.log(self);
+    $(self).text(moves[parent]);
 }
 
 function checkWinner() {
