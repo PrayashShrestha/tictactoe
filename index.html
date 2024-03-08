@@ -8,15 +8,20 @@
     <script src="script/game.js"></script>
     <link rel="stylesheet" href="css/grid.css" />
     <link rel="stylesheet" href="/css/gridanimation.css" />
+
+    </script>
   </head>
 
   <body>
+
+    <div id="overlay" onclick="overlayOff()"></div>
     <img src="./images/loading.gif" alt="Loading" class="loading" />
     <div class="screen">
       <!-- .screen -->
       <div class="header">
         <!-- .header -->
-        <h2 onclick="initializeGame()">Header</h2>
+        <header>
+          <h2 onclick="initializeGame()">Tic-Tac-Toe</h2></header>
       </div>
       <div class="game-screen">
         <div class="top-container">
@@ -78,7 +83,7 @@
       </div>
       <div class="footer">
         <!-- .footer -->
-        <h4>Footer</h4>
+        <footer><h5 >&copy; Arif & Prayash</h4></footer>
       </div>
     </div>
   </body>
