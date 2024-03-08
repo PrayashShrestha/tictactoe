@@ -2,17 +2,23 @@ $(document).ready(function () {
     // Initialize the game
     initializeGame();
 
-    // Event listener for clicking on grid items
-    $('.grid-item').each(function () {
-        let posX = $(this).data('posX');
-        let posY = $(this).data('posY');
-        $(this).click(function () {
-            makeMove(posX, posY);
-        });
-    });
+    // Event listenesr for clicking on grid items
+    // $('.grid-item').each((idx, element) => {
+    //     $(element).attr('onclick', 'setOnClickAttr(this)');
+    //     console.log(element);
+    //     // $(element).attr('onclick', 'setOnClickAttr(this)');
+    // });
+
+
+    for (let i = 0; i < 9; i++) {
+        $('.grid-container').append(`<div class="grid-item" onclick="setOnClickAttr(this)"></div>`);
+    }
+
 });
 
 function setOnClickAttr(self) {
+    console.log("I've been clicked");
+    console.log(self);
     let posX = $(self).data('posX');
     let posY = $(self).data('posY');
     makeMove(self, posX, posY);
@@ -33,6 +39,7 @@ let moves = { player1: "O", player2: "X" };
 
 // Function to initialize the game
 function initializeGame() {
+    console.log("initialized");
     // Clear the board
     clearBoard();
     // Display current player
