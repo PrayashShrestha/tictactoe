@@ -202,3 +202,9 @@ img {
     font-size: 2rem;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .loading {
+    left: 0%;
+  }
+}
