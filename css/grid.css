@@ -1,6 +1,6 @@
-body{
-    background-color: rgb(60, 60, 60);
-    color:white
+body {
+  background-color: #1d273a;
+  color: white;
 }
 
 #overlay {
@@ -18,108 +18,142 @@ body{
   }
 
 .screen {
-    display: flex;
-    flex-direction: column;
-    /* border: 1px solid black; */
-    margin: 5px;
-  }
-  
-  .header {
-    position: relative;
-    /* border: 1px solid black; */
-    margin: 5px;
-  }
-  
-  .game-screen {
-    /* border: 1px solid black; */
-    margin: 5px;
-  }
-  
-  .footer {
-    /* border: 1px solid black; */
-    margin: 5px;
-  }
-  
-  .game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* border: 1px solid black; */
-    margin: 5px;
-  }
-  
-  .tictactoe-board {
-    width: 300px;
-    height: 300px;
-    position: relative;
-    z-index: -1;
-    background-color: #12bdac;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    position: absolute;
-    z-index: 1;
-    width: 300px;
-    height: 300px;
-    gap: 10px;
-  }
-  
-  .grid-item {
-    /* border: 1px solid black; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .player-container {
-    display: flex;
-    justify-content: center;
-    /* border: 1px solid black; */
-    margin: 5px;
-  }
-  .player1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #12bdac;
-    /* border: 1px solid black; */
-    margin: 5px;
-  }
-  .player2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #12bdac;
-    /* border: 1px solid black; */
-    margin: 5px;
-  }
-
-header{
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 50px;
-    text-align: center;
+  display: none;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  margin: 5px;
 }
 
-footer{
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    height: 40px;
-    background-color: rgb(50, 50, 50);
-    text-align: center;
-
+.header {
+  /* border: 1px solid black; */
+  margin: 5px;
+}
+.loading {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+.game-screen {
+  /* border: 1px solid black; */
+  margin: 5px;
+}
+.top-container {
+  margin: 40px 0px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  text-align: start;
+  align-items: end;
+  align-content: end;
+}
+.currentPlayer {
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 25px;
+}
+.reset {
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+}
+.reset-img {
+  width: 100%;
+}
+.footer {
+  /* border: 1px solid black; */
+  margin: 5px;
 }
 
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid black; */
+  margin: 5px;
+}
+
+.tictactoe-board {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  z-index: -1;
+  background-color: #12bdac;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  position: absolute;
+  z-index: 1;
+  width: 300px;
+  height: 300px;
+  gap: 10px;
+}
+
+.grid-item {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-container {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid black; */
+  margin: 5px;
+}
+.player1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  /* background-color: #12bdac; */
+  /* border: 1px solid black; */
+  margin: 5px;
+  -webkit-box-shadow: 10px 10px 6px -5px rgba(16, 189, 172, 0.81);
+  -moz-box-shadow: 10px 10px 6px -5px rgba(16, 189, 172, 0.81);
+  box-shadow: 10px 10px 6px -5px rgba(16, 189, 172, 0.81);
+}
+.player2 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  /* background-color: #12bdac; */
+  /* border: 1px solid black; */
+  margin: 5px;
+  -webkit-box-shadow: 10px 10px 6px -5px rgba(16, 189, 172, 0.81);
+  -moz-box-shadow: 10px 10px 6px -5px rgba(16, 189, 172, 0.81);
+  box-shadow: 10px 10px 6px -5px rgba(16, 189, 172, 0.81);
+}
+img {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Set the background color to fully transparent */
+  background-size: cover; /* Adjusts the background image to cover the entire element */
+  background-repeat: no-repeat;
+}
+
+.name-input {
+  background-color: #1d273a;
+  border: none;
+  color: white;
+}
+.move {
+  font-size: 20px;
+  border-bottom: 2px solid #12bdac;
+}
