@@ -1,7 +1,22 @@
 body{
-    background-color: rgb(59, 59, 59);
+    background-color: rgb(60, 60, 60);
     color:white
 }
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+  }
+
 .screen {
     display: flex;
     flex-direction: column;
@@ -10,6 +25,7 @@ body{
   }
   
   .header {
+    position: relative;
     /* border: 1px solid black; */
     margin: 5px;
   }
@@ -88,4 +104,22 @@ body{
     /* border: 1px solid black; */
     margin: 5px;
   }
-  
+
+header{
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+footer{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(50, 50, 50);
+    text-align: center;
+
+}
+
