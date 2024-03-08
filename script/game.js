@@ -89,7 +89,7 @@ function makeMove(self, posX, posY) {
     }
 
     if (checkFilled()) {
-        // show as a draw
+        showDrawMessage();
         return;
     }
 
@@ -147,8 +147,10 @@ function showWinnerMessage() {
 }
 
 function showDrawMessage() {
+    console.log("Draw");
     finishStatus = true;
-    $(".result-text").text(`It's a draw`);
+    $(".result-text").text(`It's a draw.`);
+
     setTimeout(() => {
         overlayOn();
     }, 1000);
